@@ -3,39 +3,91 @@ import Layout from '../components/Layout.astro';
 import Background from '../components/Background.astro';
 ---
 
-<Layout title="Astro Quickstart">
-	<main>
-   <Background />
-    <div id="content">
-      <div class="header">
-        <h1>Quickstart Template</h1>
-        <div class="logo">
-          <img src="https://user-images.githubusercontent.com/43764894/223559085-8ff69d2f-4247-427f-a3a6-d2036b00082a.png" alt="Netlify plus Astro banner">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ressihink Interactive | Tech for Home Life</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Banner and Navigation -->
+    <header>
+        <div class="hero-banner">
+            <h1>Ressihink Interactive</h1>
+            <p>Your guide to the latest tech gadgets for a smarter, healthier, and more productive home life.</p>
         </div>
-        <h2>
-          This is a bare-bones Astro project that has everything you need to quickly deploy it to Netlify
-        </h2>
-        <div class="btns">
-          <a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-quickstart" class="btn primary">Deploy to Netlify</a>
-          <a href="https://github.com/netlify-templates/astro-quickstart" class="btn secondary">View Repo</a>
-        </div>
-      </div>
-			<div class="resource-list">
-        <ul>
-          <li>
-            <a href="https://ntl.fyi/38O9wmY">Netlify Blog: Astro posts</a>
-					</li>
-          <li>
-            <a href="https://developers.netlify.com/guides/tag/astro/">Netlify DevHub: Astro Guides</a>
-					</li>
-          <li>
-            <a href="https://ntl.fyi/3KHGtyz">Netlify Docs</a>
-          </li>
-          <li>
-            <a href="https://docs.astro.build/en/getting-started/">Astro Docs</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-	</main>
-</Layout>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#budgeting">Budgeting</a></li>
+                <li><a href="#health">Health & Fitness</a></li>
+                <li><a href="#productivity">Productivity</a></li>
+                <li><a href="#recipes">Smart Kitchen</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Budgeting Section -->
+        <section id="budgeting" class="content-section">
+            <div class="text-content">
+                <h2>Master Your Finances</h2>
+                <p>Discover smart wallets, automated coin counters, and budget-syncing displays that keep your household finances on track without the headache of manual spreadsheets.</p>
+                <button class="learn-more">Read Reviews</button>
+            </div>
+            <div class="image-content">
+                <!-- Live Image URL for Budgeting Tech -->
+                <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=600&q=80" alt="A smart phone showing a finance app next to a wallet on a clean desk">
+            </div>
+        </section>
+
+        <!-- Health Section -->
+        <section id="health" class="content-section reverse">
+            <div class="text-content">
+                <h2>Live Healthier</h2>
+                <p>From advanced sleep trackers to air quality monitors and smart running insoles, we break down the tech that actually improves your daily wellness.</p>
+                <button class="learn-more">Explore Gadgets</button>
+            </div>
+            <div class="image-content">
+                <!-- Live Image URL for Health Tech -->
+                <img src="https://images.unsplash.com/photo-1510006851064-e605670e3a8b?auto=format&fit=crop&w=600&q=80" alt="A sleek fitness tracker watch resting on a surface">
+            </div>
+        </section>
+
+        <!-- Productivity Section -->
+        <section id="productivity" class="content-section">
+            <div class="text-content">
+                <h2>Stay on Task</h2>
+                <p>Automate your workflow with smart displays, focus timers, and intelligent lighting that adapts to your work-from-home schedule to keep you in the zone.</p>
+                <button class="learn-more">Boost Productivity</button>
+            </div>
+            <div class="image-content">
+                <!-- Live Image URL for Productivity setup -->
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="A modern, minimalist home office desk setup with a glowing monitor">
+            </div>
+        </section>
+
+        <!-- Kitchen/Recipes Section -->
+        <section id="recipes" class="content-section reverse">
+            <div class="text-content">
+                <h2>The Smart Kitchen</h2>
+                <p>Find new recipes and cook them perfectly with smart scales, Wi-Fi connected ovens, and interactive recipe tablets that guide you step-by-step through complex bakes.</p>
+                <button class="learn-more">View Kitchen Tech</button>
+            </div>
+            <div class="image-content">
+                <!-- Live Image URL for Kitchen tech -->
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&w=600&q=80" alt="A modern kitchen interior perfect for smart home gadgets">
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ressihink Interactive. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
