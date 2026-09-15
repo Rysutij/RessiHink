@@ -3,18 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ressihink Interactive | Tech Gadgets & Smart Home Reviews</title>
+  <title>Ressi Hink Interactiv | 24/7 Virtual Assistance & Global IT Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface-border: #334155;
-      --text: #f8fafc;
+      --bg: #0b0f19;
+      --surface: #111827;
+      --surface-card: #151f32;
+      --surface-hover: #1c2a44;
+      --surface-border: #24344d;
+      --copper: #c59b6d;
+      --copper-light: #dfbe93;
+      --copper-dark: #8c6538;
+      --accent-blue: #38bdf8;
+      --accent-glow: rgba(197, 155, 109, 0.25);
+      --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --card-bg: #1e293b;
-      --accent: #38bdf8;
+      --text-dim: #64748b;
     }
 
     * {
@@ -23,11 +31,16 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -35,245 +48,790 @@
       text-decoration: none;
     }
 
-    /* Header & Nav */
+    /* Top Announcement Bar */
+    .top-bar {
+      background: linear-gradient(90deg, #111827, #1e293b, #111827);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--copper-light);
+      text-transform: uppercase;
+    }
+
+    /* Header & Navigation */
     header {
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(8px);
+      background: rgba(11, 15, 25, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--surface-border);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 1rem 2rem;
+      padding: 0.9rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .brand h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: linear-gradient(to right, #38bdf8, #818cf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
     }
 
-    .brand p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    /* Logo Styling */
+    .logo-container {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e293b;
+      border: 1.5px solid var(--copper);
+      box-shadow: 0 4px 14px var(--accent-glow);
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo-fallback {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--copper-light);
+      letter-spacing: 1px;
+    }
+
+    .brand-title h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    .brand-title .subtitle {
+      font-size: 0.72rem;
+      color: var(--copper);
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
     }
 
     nav ul {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.8rem;
       list-style: none;
     }
 
     nav a {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-muted);
-      transition: color 0.2s;
+      transition: all 0.2s;
+      letter-spacing: 0.5px;
     }
 
     nav a:hover, nav a.active {
-      color: var(--accent);
+      color: var(--copper-light);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--copper-dark), var(--copper));
+      color: #0b0f19 !important;
+      font-weight: 700 !important;
+      padding: 0.55rem 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(197, 155, 109, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(197, 155, 109, 0.5);
     }
 
     /* Hero Section */
     .hero {
-      padding: 4rem 2rem 2rem;
+      position: relative;
+      padding: 5.5rem 2rem 4rem;
       text-align: center;
-      max-width: 800px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(197, 155, 109, 0.12);
+      border: 1px solid var(--copper);
+      color: var(--copper-light);
+      margin-bottom: 1.5rem;
+    }
+
     .hero h2 {
-      font-size: 2.75rem;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+      font-family: 'Cinzel', serif;
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .hero h2 span {
+      background: linear-gradient(135deg, var(--copper-light) 0%, var(--copper) 60%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
       font-size: 1.15rem;
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      max-width: 760px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
     }
 
-    /* Grid Layout */
-    .grid {
-      max-width: 1200px;
-      margin: 0 auto 4rem;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
     }
 
-    .card {
-      background: var(--card-bg);
+    .btn-primary {
+      background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+      color: #ffffff;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 20px rgba(197, 155, 109, 0.35);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(197, 155, 109, 0.5);
+    }
+
+    .btn-secondary {
       border: 1px solid var(--surface-border);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .badge {
-      align-self: flex-start;
-      font-size: 0.75rem;
+      color: var(--text-main);
+      background: var(--surface-card);
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
       font-weight: 600;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      background: rgba(56, 189, 248, 0.1);
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
+      font-size: 0.95rem;
+      transition: all 0.2s;
     }
 
-    .card h3 {
-      font-size: 1.25rem;
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: var(--copper);
+    }
+
+    /* Metrics Bar (Executive ROI) */
+    .metrics-container {
+      max-width: 1120px;
+      margin: 1rem auto 5rem;
+      padding: 0 1.5rem;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 2.2rem 1.5rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .metric-card {
+      text-align: center;
+      padding: 0 1rem;
+      border-right: 1px solid var(--surface-border);
+    }
+
+    .metric-card:last-child {
+      border-right: none;
+    }
+
+    .metric-val {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--copper-light);
+      line-height: 1;
       margin-bottom: 0.5rem;
     }
 
-    .card p {
+    .metric-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Section Headers */
+    .section-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      padding: 0 1.5rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      color: var(--copper);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .section-head h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Services Grid */
+    .services-wrapper {
+      max-width: 1200px;
+      margin: 0 auto 6rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-box {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-6px);
+      border-color: var(--copper);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.5);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: rgba(197, 155, 109, 0.12);
+      border: 1px solid var(--copper);
+      color: var(--copper-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--copper);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .service-box h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.9rem;
+    }
+
+    .service-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.6;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: auto;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .service-list li {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .service-list li i {
+      color: var(--copper);
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* 24/7 Global Workflow Section */
+    .workflow-wrap {
+      background: var(--surface);
+      border-top: 1px solid var(--surface-border);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 5.5rem 2rem;
+      margin-bottom: 6rem;
+    }
+
+    .workflow-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .step-card {
+      background: var(--bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 14px;
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .step-card:hover {
+      border-color: var(--copper);
+    }
+
+    .step-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--copper);
+      color: #0b0f19;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .step-time {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card p {
       color: var(--text-muted);
       font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Strategic ROI Section (Challenge vs Solution) */
+    .roi-section {
+      max-width: 1100px;
+      margin: 0 auto 6rem;
+      padding: 0 2rem;
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .roi-col {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .roi-col.highlight {
+      border-color: var(--copper);
+      background: linear-gradient(180deg, rgba(197, 155, 109, 0.08) 0%, var(--surface-card) 100%);
+    }
+
+    .roi-col h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .roi-col p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
       margin-bottom: 1.5rem;
-      flex-grow: 1;
     }
 
-    .btn {
-      display: inline-block;
+    /* Consultation / Contact Banner */
+    .cta-banner {
+      max-width: 1100px;
+      margin: 0 auto 6rem;
+      padding: 0 2rem;
+    }
+
+    .banner-inner {
+      background: linear-gradient(135deg, #1e293b 0%, #151f32 100%);
+      border: 1.5px solid var(--copper);
+      border-radius: 20px;
+      padding: 3.5rem 3rem;
       text-align: center;
-      background: var(--primary);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background 0.2s;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .btn:hover {
-      background: var(--primary-hover);
+    .banner-inner h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.3rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .banner-inner p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 2.2rem;
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--surface-border);
-      padding: 2rem;
+      background: #070a11;
+      padding: 4rem 2rem 2.5rem;
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
     }
 
-    @media (max-width: 768px) {
+    .footer-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .footer-logo-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid var(--copper);
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
+    .footer-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #ffffff;
+    }
+
+    .footer-motto {
+      font-size: 0.82rem;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--copper);
+      font-weight: 700;
+      margin-top: 0.4rem;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
       header {
+        padding: 1rem;
         flex-direction: column;
         gap: 1rem;
       }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
       .hero h2 {
-        font-size: 2rem;
+        font-size: 2.3rem;
+      }
+      .metrics-grid, .steps-grid, .roi-grid {
+        grid-template-columns: 1fr;
+      }
+      .metric-card {
+        border-right: none;
+        border-bottom: 1px solid var(--surface-border);
+        padding-bottom: 1.5rem;
+      }
+      .metric-card:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    Innovate &bull; Develop &bull; Connect &nbsp;&mdash;&nbsp; 24/7 Global Operational Excellence
+  </div>
+
+  <!-- Header & Navigation -->
   <header>
-    <div class="brand">
-      <h1>Ressihink Interactive</h1>
-      <p>Smarter, Healthier, Productive Living</p>
+    <div class="brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      <div class="logo-container">
+        <img 
+          src="/Company_logo.png" 
+          alt="Ressi Hink Interactiv Logo" 
+          class="logo-img" 
+          onerror="this.style.display='none'; document.getElementById('nav-logo-fallback').style.display='flex';"
+        >
+        <span id="nav-logo-fallback" class="logo-fallback" style="display:none;">RH</span>
+      </div>
+      <div class="brand-title">
+        <h1>Ressi Hink</h1>
+        <span class="subtitle">Interactiv</span>
+      </div>
     </div>
     <nav>
       <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#budgeting">Finances</a></li>
-        <li><a href="#health">Health</a></li>
-        <li><a href="#productivity">Productivity</a></li>
-        <li><a href="#recipes">Kitchen</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">IT & Operations</a></li>
+        <li><a href="#delivery">24/7 Delivery Model</a></li>
+        <li><a href="#roi">Leadership ROI</a></li>
+        <li><a href="#contact" class="nav-cta">Schedule Consultation</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero" id="home">
-    <h2>Next-Gen Tech Guides for Your Modern Home</h2>
-    <p>Discover expert-tested smart devices, automated budgeting displays, and focus tech built to optimize your daily routine.</p>
+    <div class="hero-badge">
+      <i class="fa-solid fa-clock-rotate-left"></i> Continuous Global Virtual Support
+    </div>
+    <h2>Reclaiming Your Business Hours with <span>24/7 Virtual Assistance</span></h2>
+    <p>Empower your leadership team with around-the-clock operational bandwidth. Offload routine IT troubleshooting, data entry pipelines, and customer communications to dedicated global teams.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">
+        Explore Core Services <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <a href="#delivery" class="btn-secondary">
+        How 24/7 Delivery Works
+      </a>
+    </div>
   </section>
 
-  <main class="grid">
-
-    <!-- Finance Card -->
-    <article class="card" id="budgeting">
-      <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80" alt="Finance display app">
-      <div class="card-body">
-        <span class="badge">Finances</span>
-        <h3>Master Your Finances</h3>
-        <p>Discover smart wallets, automated coin counters, and budget-syncing displays that eliminate manual spreadsheets.</p>
-        <a href="#budgeting" class="btn">Read Finance Guides</a>
+  <!-- Metrics Banner (Leadership Time Reclaimed) -->
+  <div class="metrics-container">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val">16 hrs</div>
+        <div class="metric-label">Executive administrative time reclaimed every week</div>
       </div>
-    </article>
-
-    <!-- Health Card -->
-    <article class="card" id="health">
-      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Smart fitness tracker">
-      <div class="card-body">
-        <span class="badge">Wellness</span>
-        <h3>Live Healthier</h3>
-        <p>From advanced sleep trackers to air quality monitors and smart running insoles, explore daily wellness technology.</p>
-        <a href="#health" class="btn">Explore Health Tech</a>
+      <div class="metric-card">
+        <div class="metric-val">22+ min</div>
+        <div class="metric-label">Daily lost employee time eliminated through proactive IT support</div>
       </div>
-    </article>
-
-    <!-- Productivity Card -->
-    <article class="card" id="productivity">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Productive desk setup">
-      <div class="card-body">
-        <span class="badge">Productivity</span>
-        <h3>Stay on Task</h3>
-        <p>Automate your workflow with smart displays, focus timers, and intelligent ambient lighting for remote work.</p>
-        <a href="#productivity" class="btn">View Focus Tools</a>
+      <div class="metric-card">
+        <div class="metric-val">24/7</div>
+        <div class="metric-label">Continuous global operational coverage across all time zones</div>
       </div>
-    </article>
+    </div>
+  </div>
 
-    <!-- Kitchen Card -->
-    <article class="card" id="recipes">
-      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" alt="Smart modern kitchen">
-      <div class="card-body">
-        <span class="badge">Smart Kitchen</span>
-        <h3>The Smart Kitchen</h3>
-        <p>Cook with precision using Wi-Fi ovens, connected scales, and interactive step-by-step recipe tablets.</p>
-        <a href="#recipes" class="btn">Explore Kitchen Tech</a>
+  <!-- Services Grid -->
+  <section id="services">
+    <div class="section-head">
+      <span class="section-eyebrow">Operational Capabilities</span>
+      <h3>Comprehensive IT & Admin Services</h3>
+      <p>Driving daily efficiency and total operational reliability for modern growing enterprises.</p>
+    </div>
+
+    <div class="services-wrapper">
+      <!-- IT Support & Troubleshooting -->
+      <div class="service-box">
+        <div>
+          <div class="service-icon">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <span class="service-tag">Technical Operations</span>
+          <h4>IT Support & Troubleshooting</h4>
+          <p>Rapid PC and mobile troubleshooting to resolve technical roadblocks instantly for remote and on-premise staff.</p>
+        </div>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Proactive system & hardware monitoring</li>
+          <li><i class="fa-solid fa-check"></i> Reclaims 22+ minutes daily per employee</li>
+          <li><i class="fa-solid fa-check"></i> Software, access & identity management</li>
+        </ul>
       </div>
-    </article>
 
-  </main>
+      <!-- Data Entry & Admin Support -->
+      <div class="service-box">
+        <div>
+          <div class="service-icon">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <span class="service-tag">Operational Precision</span>
+          <h4>Data Entry & Admin Support</h4>
+          <p>High-speed, high-accuracy data entry and administrative operations executed daily with meticulous precision.</p>
+        </div>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Meticulous updates for CRM & databases</li>
+          <li><i class="fa-solid fa-check"></i> Financial record-keeping & ledger accuracy</li>
+          <li><i class="fa-solid fa-check"></i> Document preparation & workflow automation</li>
+        </ul>
+      </div>
 
+      <!-- Professional Phone Support -->
+      <div class="service-box">
+        <div>
+          <div class="service-icon">
+            <i class="fa-solid fa-phone-volume"></i>
+          </div>
+          <span class="service-tag">Customer Success</span>
+          <h4>Professional Phone Support</h4>
+          <p>A seamless, highly professional extension of your customer-facing brand with zero latency and live routing.</p>
+        </div>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Exceptional live customer service</li>
+          <li><i class="fa-solid fa-check"></i> Intelligent call routing & escalation</li>
+          <li><i class="fa-solid fa-check"></i> Zero-latency inquiry resolution</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24/7 Delivery Model Section -->
+  <section class="workflow-wrap" id="delivery">
+    <div class="workflow-content">
+      <div class="section-head">
+        <span class="section-eyebrow">The Sun Never Sets On Your Business</span>
+        <h3>Continuous 24/7 Operations</h3>
+        <p>Our global delivery model transforms your business into an around-the-clock enterprise without local night-shift overhead.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <div class="step-time">5:00 PM Handoff</div>
+          <p>Task queues, open client tickets, and administrative workflows are packaged and handed off at the close of your local workday.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <div class="step-time">Overnight Processing</div>
+          <p>Dedicated global teams resolve IT hurdles, perform accurate data entries, and manage customer inquiries overnight.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <div class="step-time">8:00 AM Delivery</div>
+          <p>Start your workday with completed deliverables, clean queues, and leadership focus directed entirely toward scaling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic ROI Section -->
+  <section class="roi-section" id="roi">
+    <div class="section-head">
+      <span class="section-eyebrow">Leadership ROI</span>
+      <h3>Eliminating Operational Bottlenecks</h3>
+      <p>Redirecting executive bandwidth from repetitive friction toward high-impact business growth.</p>
+    </div>
+
+    <div class="roi-grid">
+      <div class="roi-col">
+        <h4>The Bottleneck</h4>
+        <p>Routine administrative tasks, technical friction, and constant communication queues stifle leadership efficiency.</p>
+        <p><strong style="color:#ffffff;">The cost:</strong> Business leaders lose up to <strong style="color:var(--copper-light);">16 hours weekly</strong> to administrative distraction instead of focusing on strategic market expansion.</p>
+      </div>
+      <div class="roi-col highlight">
+        <h4>The Ressi Hink Strategic Focus</h4>
+        <p>Offload routine administration and IT workloads to dedicated, vetted virtual teams operating on a continuous 24/7 schedule.</p>
+        <p><strong style="color:#ffffff;">The outcome:</strong> Executive attention is redirected 100% toward strategic partnerships, revenue growth, and building enterprise value.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation / Call to Action -->
+  <section class="cta-banner" id="contact">
+    <div class="banner-inner">
+      <h3>Ready to Reclaim Your Business Hours?</h3>
+      <p>Partner with Ressi Hink Interactiv to bring 24/7 operational continuity and dedicated virtual assistance to your company.</p>
+      <a href="mailto:contact@ressihink.com" class="btn-primary" style="font-size:1rem; padding:1rem 2.5rem;">
+        <i class="fa-solid fa-envelope"></i> Inquire About Support
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Ressihink Interactive. All rights reserved.</p>
+    <div class="footer-logo-wrap">
+      <img 
+        src="/Company_logo.png" 
+        alt="Ressi Hink Logo" 
+        class="footer-logo-img"
+        onerror="this.style.display='none';"
+      >
+      <div class="footer-brand">Ressi Hink Interactiv</div>
+      <div class="footer-motto">Innovate &bull; Develop &bull; Connect</div>
+    </div>
+    <p class="footer-copy">
+      &copy; 2026 Ressi Hink Interactiv. Reclaiming your business hours with 24/7 global operational excellence.
+    </p>
   </footer>
 
 </body>
